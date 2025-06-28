@@ -1,207 +1,369 @@
+:root {
+  --pikachu-skin-color: #efdb6b;
+  --pikachu-skin-bright-color: #fcec8c;
+  --pikachu-skin-shadow-color: #cebc56;
+  --pikachu-cheek-color: #c95a4f;
+  --pikachu-border-color: #303231;
+  --pikachu-base-tail-color: #923e26;
+  --pikachu-head-size: 250px;
+  --pikachu-head-shape: polygon(16% 17%, 36% 5%, 65% 5%, 83% 17%, 94% 37%, 94% 49%, 98% 58%, 97% 71%, 90% 84%, 71% 95%, 29% 95%, 9% 84%, 3% 71%, 1% 59%, 6% 50%, 6% 37%);
+  --pikachu-ear-shape: polygon(0 0, 55% 16%, 98% 57%, 83% 76%, 38% 47%);
+  --pikachu-inner-ear-shape: polygon(0 0, 100% 0, 70% 35%, 100% 100%, 0 100%);
+  --pikachu-shine-head-shape: polygon(0 0, 100% 0, 100% 100%, 77% 100%, 62% 60%, 38% 60%, 23% 100%, 20% 100%);
+  --pikachu-shadow-head-shape: polygon(0 100%, 100% 100%, 95% 0%, 70% 50%, 32% 50%, 0 0);
+  --pikachu-octagon-shape: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  --pikachu-mouth-shape: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 80% 100%, 70% 90%, 40% 90%, 30% 100%, 20% 100%, 10% 90%);
+  --pikachu-mouth-container-shape: polygon(33% 86%, 44% 70%, 60% 72%, 71% 88%, 67% 100%, 0 100%);
+  --pikachu-nose-shape: polygon(0 0, 100% 0, 50% 100%);
+  --pikachu-triangle-shape: polygon(0 0, 100% 0, 0 100%);
+  --pikachu-hand-shape: polygon(30% 0, 70% 0, 100% 75%, 80% 100%, 20% 100%, 0 75%);
+  --pikachu-feet-shape: polygon(25% 5%, 100% 0, 55% 100%, 0 100%);
+  --pikachu-tail-shape: polygon(0% 100%, 16% 100%, 10% 80%, 42% 88%, 31% 41%, 74% 54%, 92% 11%, 10% 24%, 25% 68%, 0% 72%, 6% 92%, 0% 91%);
+  --custom-filter:
+    drop-shadow(-4px 0 0 var(--pikachu-border-color))
+    drop-shadow(4px 0 0 var(--pikachu-border-color))
+    drop-shadow(0 4px 0 var(--pikachu-border-color))
+    drop-shadow(0 -4px 0 var(--pikachu-border-color));
+}
+
 body {
+  margin: 0;
+  overflow: hidden;
+  background: steelblue;
+}
+
+.container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f0f0f0;
-  margin: 0;
+  margin-top: 6em;
+  margin-right: 4em;
 }
+
 .pikachu {
-  position: relative;
-  width: 320px;
-  height: 420px;
-}
-.body {
-  position: absolute;
-  left: 60px;
-  top: 80px;
-  width: 200px;
-  height: 260px;
-  background: #ffcc00;
-  border-radius: 100px 100px 110px 110px / 110px 110px 120px 120px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-  z-index: 2;
-}
-.face {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 180px;
-  height: 140px;
-  background: #ffcc00;
-  border-radius: 90px 90px 80px 80px / 90px 90px 70px 70px;
-  z-index: 3;
-  box-shadow: 0 0 10px rgba(0,0,0,0.12);
-}
-.ear-left, .ear-right {
-  position: absolute;
-  width: 38px;
-  height: 110px;
-  background: #ffcc00;
-  top: -70px;
-  z-index: 1;
-}
-.ear-left {
-  left: -18px;
-  border-radius: 60px 30px 60px 30px / 100px 40px 80px 40px;
-  transform: rotate(-18deg);
-}
-.ear-right {
-  right: -18px;
-  border-radius: 30px 60px 30px 60px / 40px 100px 40px 80px;
-  transform: rotate(18deg);
-}
-.ear-tip-left, .ear-tip-right {
-  position: absolute;
-  width: 38px;
-  height: 40px;
-  background: #222;
-  top: 0;
-  border-radius: 20px 20px 10px 10px / 30px 30px 10px 10px;
-}
-.ear-tip-left {
-  left: 0;
-}
-.ear-tip-right {
-  right: 0;
-}
-.eye-left, .eye-right {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  background: #222;
-  border-radius: 50%;
-  top: 54px;
-}
-.eye-left {
-  left: 38px;
-}
-.eye-right {
-  right: 38px;
-}
-.eye-highlight {
-  width: 9px;
-  height: 9px;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  opacity: 0.9;
-}
-.nose {
-  position: absolute;
-  top: 80px;
-  left: 85px;
-  width: 10px;
-  height: 8px;
-  background: #222;
-  border-radius: 50% 50% 60% 60%;
-}
-.mouth {
-  position: absolute;
-  top: 98px;
-  left: 70px;
-  width: 40px;
-  height: 22px;
   display: flex;
-  justify-content: space-between;
-}
-.mouth-left, .mouth-right {
-  width: 18px;
-  height: 18px;
-  border: 2.5px solid #222;
-  border-top: none;
-  border-radius: 0 0 18px 18px;
-  background: transparent;
-}
-.mouth-left {
-  border-right: none;
-}
-.mouth-right {
-  border-left: none;
-}
-.cheek-left, .cheek-right {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  background: #ff4444;
-  border-radius: 50%;
-  top: 92px;
-  z-index: 4;
-  box-shadow: 0 0 8px #ff444488;
-}
-.cheek-left {
-  left: 8px;
-}
-.cheek-right {
-  right: 8px;
-}
-.arm-left, .arm-right {
-  position: absolute;
-  width: 38px;
-  height: 70px;
-  background: #ffcc00;
-  top: 120px;
-  z-index: 2;
-  border-radius: 30px 30px 40px 40px / 40px 40px 60px 60px;
-  box-shadow: 0 2px 8px #e6b80044;
-}
-.arm-left {
-  left: -28px;
-  transform: rotate(-18deg);
-}
-.arm-right {
-  right: -28px;
-  transform: rotate(18deg);
-}
-.foot-left, .foot-right {
-  position: absolute;
-  width: 36px;
-  height: 44px;
-  background: #ffcc00;
-  bottom: -18px;
-  z-index: 2;
-  border-radius: 20px 20px 30px 30px / 20px 20px 40px 40px;
-  box-shadow: 0 2px 8px #e6b80044;
-  border-bottom: 4px solid #b8860b;
-}
-.foot-left {
-  left: 18px;
-}
-.foot-right {
-  right: 18px;
-}
-.tail {
-  position: absolute;
-  left: -70px;
-  top: 120px;
-  width: 90px;
-  height: 180px;
-  z-index: 0;
-}
-.tail-zigzag {
-  position: absolute;
-  left: 40px;
-  top: 0;
-  width: 22px;
-  height: 110px;
-  background: #ffcc00;
-  border-radius: 10px;
-  transform: rotate(-18deg);
-  box-shadow: 0 0 0 6px #b8860b inset;
-  clip-path: polygon(0 0, 100% 0, 100% 30%, 60% 30%, 60% 60%, 100% 60%, 100% 100%, 0 100%, 0 70%, 40% 70%, 40% 40%, 0 40%);
-}
-.tail-end {
-  position: absolute;
-  left: 30px;
-  top: 100px;
-  width: 100px;
-  height: 40px;
-  background: #b8860b;
-  border-radius: 10px 30px 10px 30px / 20px 30px 10px 30px;
-  transform: rotate(-10deg);
-}
+  flex-direction: column;
+  align-items: center;
+
+  & .head-container {
+    position: relative;
+    z-index: 1;
+    filter: var(--custom-filter);
+    /* animation: moveHead 1s infinite alternate; */
+
+    & .ear {
+      position: absolute;
+      width: 175px;
+      height: 150px;
+      background: var(--pikachu-skin-color);
+      clip-path: var(--pikachu-ear-shape);
+      transform: translate(-110px, -50px);
+      top: 0;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 20%;
+        background: var(--pikachu-skin-bright-color);
+        transform: rotate(35deg) translate(20px, 0);
+        position: absolute;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 40%;
+        height: 50%;
+        background: var(--pikachu-border-color);
+        clip-path: var(--pikachu-inner-ear-shape);
+      }
+
+      &.right {
+        transform: translate(180px, -50px) scale(-1, 1);
+      }
+    }
+  }
+
+  & .head {
+    position: relative;
+    width: var(--pikachu-head-size);
+    height: var(--pikachu-head-size);
+    background: var(--pikachu-skin-color);
+    clip-path: var(--pikachu-head-shape);
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 14%;
+      background: var(--pikachu-skin-bright-color);
+      position: absolute;
+      clip-path: var(--pikachu-shine-head-shape);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 16%;
+      background: var(--pikachu-skin-shadow-color);
+      position: absolute;
+      bottom: 0;
+      clip-path: var(--pikachu-shadow-head-shape);
+    }
+  }
+
+  & .face {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    transform: translate(0, 90px);
+
+    & .eyes-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+
+      & .eye {
+        width: 45px;
+        height: 50px;
+        background: var(--pikachu-border-color);
+        clip-path: var(--pikachu-octagon-shape);
+
+        &::before {
+          content: "";
+          display: block;
+          background: #fff;
+          width: 45%;
+          height: 50%;
+          clip-path: var(--pikachu-octagon-shape);
+          transform: translate(15px, 3px);
+        }
+      }
+    }
+
+    & .nose-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 15px;
+
+      & .nose {
+        width: 20px;
+        background: var(--pikachu-border-color);
+        clip-path: var(--pikachu-nose-shape);
+        position: relative;
+        z-index: 1;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        background: var(--pikachu-skin-shadow-color);
+        clip-path: var(--pikachu-nose-shape);
+        width: 20px;
+        height: 25px;
+      }
+    }
+
+    & .mouth-container {
+      display: flex;
+      width: 100%;
+      height: 64px;
+      justify-content: center;
+      filter: var(--custom-filter);
+      clip-path: var(--pikachu-mouth-container-shape);
+      transform: translate(-5px, -35px);
+
+      & .mouth {
+        background: var(--pikachu-skin-color);
+        clip-path: var(--pikachu-mouth-shape);
+        width: 80px;
+        height: 58px;
+      }
+    }
+
+    & .cheek-container {
+      position: absolute;
+      top: 55px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      filter: var(--custom-filter);
+
+      & .cheek {
+        width: 50px;
+        height: 50px;
+        background: var(--pikachu-cheek-color);
+        clip-path: var(--pikachu-octagon-shape);
+        display: flex;
+        justify-content: center;
+
+        &::before {
+          content: "";
+          display: block;
+          background: rgba(255, 255, 255, 0.25);
+          width: 35%;
+          height: 40%;
+          clip-path: var(--pikachu-octagon-shape);
+          transform: translate(0, 5px);
+        }
+      }
+    }
+  }
+
+  & .body-container {
+    width: 95%;
+    height: 220px;
+    transform: translate(0, -25px);
+    filter: var(--custom-filter);
 
 
+    & .body {
+      width: 100%;
+      height: 100%;
+      background: var(--pikachu-skin-color);
+      clip-path: polygon(15% 0, 85% 0, 100% 70%, 81% 100%, 50% 95%, 19% 100%, 0 70%);
 
+      &::before {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-bright-color);
+        width: 100%;
+        height: 10%;
+        transform: rotate(75deg) translate(95px, -80px);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-shadow-color);
+        width: 100%;
+        height: 10%;
+        transform: rotate(55deg) translate(95px, 170px);
+      }
+    }
+  }
+
+  & .feet-container {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: space-around;
+    filter: var(--custom-filter);
+    /* animation: moveBody 1s ease infinite alternate; */
+    position: relative;
+    top: 20px;
+
+    & .feet {
+      background: var(--pikachu-skin-color);
+      width: 50px;
+      height: 25px;
+      clip-path: var(--pikachu-feet-shape);
+      transform: translate(0, -25px) rotate(-5deg);
+
+      &.right {
+        transform: translate(0, -25px) scale(-1, 1) rotate(-5deg);
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-shadow-color);
+        width: 100%;
+        height: 60%;
+        clip-path: var(--pikachu-triangle-shape);
+      }
+    }
+  }
+
+  & .hand-container {
+    z-index: 5;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    transform: translate(0, -255px);
+    filter: var(--custom-filter);
+    /* animation: moveHand 1s ease infinite alternate; */
+
+    & .hand {
+      width: 65px;
+      height: 80%;
+      background: var(--pikachu-skin-color);
+      clip-path: var(--pikachu-hand-shape);
+      transform: scale(-1, 1) translate(15px, 30px) skew(-10deg) rotate(10deg);
+
+      &.right::before {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-bright-color);
+        width: 100%;
+        height: 10%;
+        transform: rotate(70deg) translate(30px, -10px) scale(1.5, 1);
+      }
+
+      &.right::after {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-shadow-color);
+        width: 100%;
+        height: 10%;
+        transform: rotate(55deg) translate(20px, 54px);
+      }
+
+      &.left::before {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-shadow-color);
+        width: 100%;
+        height: 10%;
+        transform: rotate(70deg) translate(30px, -10px) scale(1.5, 1);
+      }
+
+      &.left::after {
+        content: "";
+        display: block;
+        background: var(--pikachu-skin-bright-color);
+        width: 100%;
+        height: 10%;
+        transform: rotate(55deg) translate(20px, 54px);
+      }
+
+      &.right {
+        transform: scale(1, 1) translate(15px, 30px) skew(-10deg) rotate(10deg);
+      }
+    }
+  }
+
+  & .tail-container {
+    position: absolute;
+    z-index: -1;
+    width: 225px;
+    height: 225px;
+    transform: translate(220px, 110px);
+    transform-origin: 0 100%;
+    filter: var(--custom-filter);
+    /* animation: moveTail 2s infinite alternate; */
+
+    & .tail {
+      width: 100%;
+      height: 100%;
+      background: var(--pikachu-skin-color);
+      clip-path: var(--pikachu-tail-shape);
+      display: flex;
+      align-items: flex-end;
+
+      &::after {
+        content: "";
+        display: block;
+        background: var(--pikachu-base-tail-color);
+        width: 20%;
+        height: 14%;
+        transform: rotate(3deg);
+      }
+    }
+  }
+}
